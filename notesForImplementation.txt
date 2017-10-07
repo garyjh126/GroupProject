@@ -1,0 +1,62 @@
+						Intro Video (Brief explanation of file directory)
+
+- All models go in the 'app' folder
+- The controllers are going to be in app>Http>Controllers
+- Artisan is the best way to make a controller - It will create the folder, the class, include dependencies, and the namespace
+- Namespace gives the file an identifier just incase it has the same class name as another
+- If you want to bring in a file to use, just use the 'use' keyword
+- Don't get confused with illuminate, it just means the laravel core system
+- The views are going to be in the resources folder 
+- All laravel views will use the blade template engine, this is basically HTML with some dynamic properties 
+- We can have @if statements, loops, variables and so on. There is a lot of simple stuff we can with blade. 
+- The main routes file is the web.php file. The api.php file is responsible for implementing a RESTful API. 
+- app>providers will give us services 
+
+	Config:
+- in config>database.php, we can define what databse we want to use. mysql is the default. You can also use sqlite or PostGreSQL.
+- in config>app.php, you will need to add a provider to provider array inside app.php anytime you install laravel packages.
+
+-Storage has to do with using the file system
+- .env is where the DB credentials go 
+-  Unit tests can be performed under the 'tests' folder 
+ 
+	Public:
+-This is where the CSS and JS goes. 
+-The code will be minified because it is being compiled from the 'resources' > 'assets' folder
+
+
+									Third Video
+
+- You pretty much never want to return a view from the route. What you would usually do is create a controller and set the route to go to a certain controller function and then return the view. 
+- We then create a controller via the integrated terminal (artisan)	-    $ php artisan make:controller PagesController
+This creates the file for us as well as bring in the namespace and it also brings in the request library with 'use'
+- Any controller we create should 'extend controller'
+-In the second paramter of Route::get inside the routes file, we want to replace it with the controller and the method(function) that we want
+	(Route:get('/', 'PagesController@index')              ------------  Second paramater - [ControllerName]@[FunctionName]
+
+This will bring us to the function within the controller.
+- When we get to this controller we want to load a view. 
+
+-Name of app may be changed in .env and index.blade.php
+
+
+									Fourth Video
+- All of our views have a repeating HTML. We want to create layouts for these.
+We do this under resources > views > layouts
+- We need to install an extension - ctrl+p ----- Then type 'ext install laravel-blade'
+Install laravel blade snippets
+- We want to extend in all of our views.
+
+		Passing values into a blade template:
+- Go to controller, insert compact([variableName]) into second parameter.
+- Then go to view and use {{[variableName}}
+
+	-You can also implement this another way: Inside the controller, 'return view('pages.index')->with([NameOfVariableInsideView],[NameOfVariable]) ;'
+	(This method is ideal if you want to pas in multiple values as an array)
+
+		Assets & CSS:	
+- In public>css>app.css, we can find compiled code which contains bootstrap. 
+- We need to run 'npm install' to install dependencies in app.scss in the sass folder(resources>assets)
+- If we want to change something and if you compile it like we are, you always want to go the the resources folder and change it there, NOT in the public folder because that is the compiled version.
+- If you change something in resources, you will not see the change unless you re-compile it. (npm run dev in bash). This will look at all of our assets inside resources and compile it. 
+ 
