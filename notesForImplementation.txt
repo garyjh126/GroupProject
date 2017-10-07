@@ -59,4 +59,16 @@ Install laravel blade snippets
 - We need to run 'npm install' to install dependencies in app.scss in the sass folder(resources>assets)
 - If we want to change something and if you compile it like we are, you always want to go the the resources folder and change it there, NOT in the public folder because that is the compiled version.
 - If you change something in resources, you will not see the change unless you re-compile it. (npm run dev in bash). This will look at all of our assets inside resources and compile it. 
+- If you dont want to run 'npm run dev' all the time, you can just run 'npm run watch'
+- If you want to add your own custom style sheet, create a new file called _custom.scss inside (resources>assets>sass). If you then want to include this file, you need to include it in app.scss. (@import "custom") - The underscore tells it that it's an include. 
+- '!important' will override any other styles in css. 
+-  WE ARE NOT GOING TO BE USING MUCH CUSTOM STYLING, MAINLY BOOTSTRAP
+
+		Navigation Bar:
+- The container class will push it over
+- We want the navbar to go in every page, but we can just put it inside of an include and then include it in the 'layout'. 
+We do this put creating a folder in views and we call it 'inc'. Create a new file inside here called navbar.blade.php
+- We et the actual navbar design from 'getbootstrap.com'
+
+
  
